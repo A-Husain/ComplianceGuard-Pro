@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "71728364-5086-4a0c-a497-7af3e04e4b87"
+      }
+    },
+    "android": {
+      "package": "com.ahusain.vitereacttypescriptstarter"
+    },
+    "ios": {
+      "bundleIdentifier": "com.ahusain.vitereacttypescriptstarter",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    }
+  }
+}
