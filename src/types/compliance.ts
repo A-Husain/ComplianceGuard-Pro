@@ -10,13 +10,34 @@ export interface ProjectInfo {
   status: 'pending' | 'clear' | 'flagged' | 'review';
 }
 
+export interface SanctionEntity {
+  id: string;
+  name: string;
+  aliases: string[];
+  type: 'individual' | 'entity' | 'vessel' | 'aircraft';
+  nationality?: string;
+  country?: string;
+  dateOfBirth?: string;
+  placeOfBirth?: string;
+  passportNumbers?: string[];
+  nationalIds?: string[];
+  addresses?: string[];
+  remarks?: string;
+  listedDate: Date;
+  source: string;
+  matchScore?: number;
+}
+
 export interface SanctionCheck {
   database: string;
   entity: string;
   entityType: 'client' | 'country' | 'individual';
-  status: 'clear' | 'flagged' | 'review';
+  status: 'clear' | 'flagged' | 'review' | 'no_data';
   details?: string;
   riskLevel: 'low' | 'medium' | 'high';
+  matches?: SanctionEntity[];
+  matchScore?: number;
+  lastSyncDate?: Date;
 }
 
 export interface ComplianceResult {
@@ -26,6 +47,8 @@ export interface ComplianceResult {
   summary: string;
   recommendations: string[];
   checkedAt: Date;
+  searchQuery: string;
+  fuzzyMatches?: SanctionEntity[];
 }
 
 export interface SanctionDatabase {
@@ -33,6 +56,11 @@ export interface SanctionDatabase {
   region: string;
   description: string;
   lastUpdated: Date;
+  sourceUrl: string;
+  entityCount: number;
+  syncStatus: 'syncing' | 'synced' | 'error' | 'never';
+  lastSyncAttempt?: Date;
+  errorMessage?: string;
 }
 
 export interface ExtractedInfo {
@@ -49,4 +77,19 @@ export interface DocumentProcessingResult {
   success: boolean;
   extractedInfo?: ExtractedInfo;
   error?: string;
+}
+
+export interface SyncStatus {
+  database: string;
+  status: 'syncing' | 'synced' | 'error' | 'never';
+  lastSync: Date;
+  entityCount: number;
+  errorMessage?: string;
+}
+
+export interface FuzzyMatchResult {
+  entity: SanctionEntity;
+  score: number;
+  matchedField: string;
+  matchedValue: string;
 }

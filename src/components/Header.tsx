@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-gray-900">ComplianceGuard Pro</h1>
-              <p className="text-sm text-gray-600">Advanced Export Control & Sanctions Screening</p>
+              <p className="text-sm text-gray-600">Developed By Advanced Power Switchgear Company</p>
             </div>
           </div>
 

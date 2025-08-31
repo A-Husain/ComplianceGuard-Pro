@@ -25,7 +25,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
 
   const handleExtractedInfo = (extractedInfo: ExtractedInfo) => {
     const newFormData = { ...formData };
-    
+
     if (extractedInfo.projectName) {
       newFormData.projectName = extractedInfo.projectName;
     }
@@ -41,10 +41,10 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
     if (extractedInfo.projectScope) {
       newFormData.projectScope = extractedInfo.projectScope;
     }
-    
+
     setFormData(newFormData);
     setShowDocumentUpload(false);
-    
+
     // Clear any existing errors for fields that were filled
     const newErrors = { ...errors };
     extractedInfo.extractedFields.forEach(field => {
@@ -84,7 +84,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     const projectInfo: ProjectInfo = {
@@ -140,9 +140,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
               type="text"
               value={formData.projectName}
               onChange={(e) => handleInputChange('projectName', e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                errors.projectName ? 'border-red-300' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${errors.projectName ? 'border-red-300' : 'border-gray-300'
+                }`}
               placeholder="Enter project name"
               disabled={isProcessingDocument}
             />
@@ -160,9 +159,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
               type="text"
               value={formData.projectLocation}
               onChange={(e) => handleInputChange('projectLocation', e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                errors.projectLocation ? 'border-red-300' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${errors.projectLocation ? 'border-red-300' : 'border-gray-300'
+                }`}
               placeholder="Country/Region"
               disabled={isProcessingDocument}
             />
@@ -182,9 +180,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
               type="text"
               value={formData.client}
               onChange={(e) => handleInputChange('client', e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-                errors.client ? 'border-red-300' : 'border-gray-300'
-              }`}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${errors.client ? 'border-red-300' : 'border-gray-300'
+                }`}
               placeholder="Client company name"
               disabled={isProcessingDocument}
             />
@@ -218,9 +215,8 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
             value={formData.projectScope}
             onChange={(e) => handleInputChange('projectScope', e.target.value)}
             rows={4}
-            className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
-              errors.projectScope ? 'border-red-300' : 'border-gray-300'
-            }`}
+            className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${errors.projectScope ? 'border-red-300' : 'border-gray-300'
+              }`}
             placeholder="Describe the project scope, deliverables, and any sensitive technologies involved..."
             disabled={isProcessingDocument}
           />
@@ -267,7 +263,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ onSubmit, isLoading })
             <div>
               <h3 className="text-sm font-medium text-amber-800">Compliance Notice</h3>
               <p className="text-sm text-amber-700 mt-1">
-                This check will screen against USA, EU, UN, and UK sanctions databases. 
+                This check will screen against USA, EU, UN, and UK sanctions databases.
                 Ensure all information is accurate and complete for proper compliance screening.
               </p>
             </div>
